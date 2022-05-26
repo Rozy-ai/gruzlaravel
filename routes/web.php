@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DropzoneController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,17 @@ use App\Http\Controllers\OrderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
+});
+Route::group(['middleware' => 'guest'], function(){
+	Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
+});
+
+
 
 Route::get('/', [HomeController::class, 'index'] );
 Route::get('/contact', [HomeController::class, 'contact'] );
@@ -32,20 +44,14 @@ Route::get('/order', [OrderController::class, 'index'] );
 Route::get('/order/{role}', [OrderController::class, 'role'] );
 Route::get('/item/kadalasdyryjy-namalar', [ItemController::class, 'acts'] );
 Route::get('/item/{id}', [ItemController::class, 'show'] )->name('item.show');
-// Route::get('/{locale?}', function ($locale = null) {
-//     if (isset($locale) && in_array($locale, config('app.available_locales'))) {
-//         app()->setLocale($locale);
-//     }
-//         return App::call('App\Http\Controllers\HomeController@index');
-// });
+
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
 });
 
-//Route::get('/admin', 'Admin/DashboardController@index' );
-Route::group(['prefix' => 'admin', 'namescape' => 'Admin'], function (){
+Route::group(['prefix' => 'admin', 'namescape' => 'Admin', 'middleware' => 'admin'], function (){
 Route::get('/', [DashboardController::class, 'index'] );
 Route::resource('categories', CategoriesController::class );
 Route::resource('items', ItemsController::class );
@@ -66,8 +72,4 @@ Route::get('dropzone/delete', [DropzoneController::class, 'delete'])->name('drop
 // Route::post('image/delete', [ImageUploadController::class, 'fileDestroy'] );
 });
 
-// Route::controller(UserController::class)->group(function () {
-//     Route::get('/', 'create')->name('user.create');
-//     Route::post('/', 'store')->name('user.store');
-// });
 
