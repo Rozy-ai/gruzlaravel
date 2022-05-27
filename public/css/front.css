@@ -1671,6 +1671,9 @@ text-decoration: none;
     margin-top: 6px;
 }
 header{
+  position: absolute;
+  top: 0;
+  width: 100%;
   background-color: #079C34;
 }
 header p{
@@ -1693,14 +1696,13 @@ header div.lang_img img{
 }
 ul.lang_ul {
     list-style: none;
-    margin: 38px 0 10px 0;
+    margin: 8px 0 10px 0;
 }
 ul.lang_ul li {
     display: inline-block;
 }
 .language_box {
     text-align: right;
-    margin-top: -30px;
 }
 .header_info a {
     color: #fff;
