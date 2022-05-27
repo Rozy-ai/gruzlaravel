@@ -46,7 +46,7 @@
  
 <div class="form_radio_btn">
 	<input id="radio-2" type="radio" name="roles" value="legal">
-	<label for="radio-2">{{__('Entity')}}</label>
+	<label for="radio-2">{!!__('Entity')!!}</label>
 </div>
 <div class="col-12" style="margin-top: 30px">
 <button type="submit" class="btn btn-success">{{__('Send')}}</button>

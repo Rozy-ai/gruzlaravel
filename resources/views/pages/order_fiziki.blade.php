@@ -7,8 +7,9 @@
         <div class="row">
             <h2 class="text-uppercase decorated"><span>{{__('Orders')}}</span></h2>
             <div class="contact-text right-side">
-                <form id="order-form" action="#" method="post" enctype="multipart/form-data">
+                <form id="order-form" action="/order/order" method="get">
                     {!! csrf_field() !!}
+                    <input type="hidden" name="role" value="{{ request()->has('roles') ? request()->get('roles') : '' }}">
                <div class="row">
                     <div class="offset-md-2 col-md-8 col-xs-12">
 <div class="form-group field-name required">
@@ -61,18 +62,24 @@
 
 <p class="help-block help-block-error"></p>
 </div>                </div>
-                    <div class="offset-md-2 col-md-8 col-xs-12">
-                        <div class="form-group field-file">
-                            <label class="control-label" for="file">{{__('Ýüz tutma haty')}}</label>
-              <input type="file" required="" id="file" class="form-control input-lg" name="file" placeholder="{{__('Ýüz tutma haty')}}" aria-required="true">
-              <p class="help-block help-block-error"></p>
-                    </div>
-                </div>
+                 <div class="offset-md-2 col-md-8 col-xs-12">
+                  <div class="form-group field-cargo_type">
+<label class="control-label" for="cargo_type"></label>
+<input type="text" required="" id="cargo_type" class="form-control input-lg" name="cargo_type" placeholder="{{__('Cargo type')}}" aria-required="true">
 
+<p class="help-block help-block-error"></p>
+</div>                </div>
+                 <div class="offset-md-2 col-md-8 col-xs-12">
+                  <div class="form-group field-cargo_volume">
+<label class="control-label" for="cargo_volume"></label>
+<input type="text" required="" id="cargo_volume" class="form-control input-lg" name="cargo_volume" placeholder="{{__('Cargo volume')}}" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                </div>
                                     <div class="offset-md-2 col-md-8 col-xs-12">
                 <div class="form-group field-message">
 <label class="control-label" for="message"></label>
-<textarea id="message" class="form-control input-lg" name="message" rows="6" placeholder="{{__('Message')}}" style="resize: none;"></textarea>
+<textarea id="message" class="form-control input-lg" name="message" rows="6" placeholder="{{__('Note')}}" style="resize: none;"></textarea>
 
 <p class="help-block help-block-error"></p>
 </div>                </div>

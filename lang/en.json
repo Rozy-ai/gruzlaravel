@@ -30,7 +30,7 @@
     "TYPE_BETWEEN_CITY" : "Intercity routes",
     "Send A Message" : "Send message",
     "Name" : "Name",
-    "Email" : "Email",
+    "Email" : "E-mail",
     "Subject" : "Subject",
     "Message" : "Message",
     "Submit" : "Submit",
@@ -39,10 +39,13 @@
     "Home" : "Home",
     "route_no" : "Route number",
     "Length" : "Route length",
-    "name" : "Name",
-    "ý/a/g" : "Date (y/m/d)",
+    "name" : "Full name",
+    "ý/a/g" : "Transport submission date",
     "Ordering" : "Orders",
     "send succss" : "Thank you for contacting us. We will respond to you as soon as possible.",
     "send error" : "There was an error sending email.",
-    "not" : "cannot be blank"
+    "not" : "cannot be blank",
+    "Transport departure point" : "From",
+    "Transport destination" : "To",
+    "Entity" : "&emsp; Entity &emsp;"
 }

@@ -1,4 +1,3 @@
-
 <!-- BEGIN PRE-FOOTER -->
 <div class="pre-footer">
     <div class="container">
@@ -48,6 +47,8 @@
                                <a style="color: #fff;text-decoration: none;" href="tel:{{$phone_numbers}}">{{$phone_numbers}}</a>
                                 @endif
                                 </p>
+              <li><b><i class=" fa fa-envelope"></i> 
+                                </b> <a href="mailto:{{$ownInfo->my_email }}"> {{  $ownInfo->my_email }}</a></li>
                 </ul>
                 </div>
 

@@ -7,24 +7,24 @@
         <div class="row">
             <h2 class="text-uppercase decorated"><span>{{__('Orders')}}</span></h2>
             <div class="contact-text right-side">
-                <form id="order-form" action="#" method="post" enctype="multipart/form-data">
+                <form id="order-form" action="/order/order" method="get">
                     {!! csrf_field() !!}
+                    <input type="hidden" name="role" value="{{ request()->has('roles') ? request()->get('roles') : '' }}">
                <div class="row">
-        <div class="offset-md-2 col-md-8 col-xs-12">
-<div class="form-group field-institutional_name required">
-<input type="text" required="" id="institutional_name" class="form-control input-lg" name="institutional_name" placeholder="{{__('Edaranyň ady')}}" aria-required="true">
+                        <div class="offset-md-2 col-md-8 col-xs-12">
+<div class="form-group field-enterprise required">
+<input type="text" required="" id="enterprise" class="form-control input-lg" name="enterprise" placeholder="{{__('Enterprise')}}" aria-required="true">
 
 <p class="help-block help-block-error"></p>
 </div>                    
                     </div>
                     <div class="offset-md-2 col-md-8 col-xs-12">
 <div class="form-group field-name required">
-<input type="text" required="" id="name" class="form-control input-lg" name="name" placeholder="{{__('name')}}" aria-required="true">
+<input type="text" required="" id="name" class="form-control input-lg" name="name" placeholder="{{__('Responsible person')}}" aria-required="true">
 
 <p class="help-block help-block-error"></p>
 </div>                    
                     </div>
-
                      <div class="offset-md-2 col-md-8 col-xs-12">
 <div class="form-group field-phone required">
 <input type="text" required="" id="phone" class="form-control ant-input input-lg" name="phone" placeholder="{{__('Phone number')}}">
@@ -34,7 +34,7 @@
                     <div class="offset-md-2 col-md-8 col-xs-12">
                         <div class="form-group field-email required">
 <label class="control-label" for="email"></label>
-<input type="email" id="email" class="form-control input-lg" name="[email]" placeholder="{{__('Email')}}" aria-required="true">
+<input type="email" id="email" class="form-control input-lg" name="email" placeholder="{{__('Email')}}" aria-required="true">
 
 <p class="help-block help-block-error"></p>
 </div>                    </div>
@@ -65,19 +65,24 @@
 
 <p class="help-block help-block-error"></p>
 </div>                </div>
-                    <div class="offset-md-2 col-md-8 col-xs-12">
-                        <div class="form-group field-file">
-                            <label class="control-label" for="file">{{__('Ýüz tutma haty')}}
-              <input type="file" required="" id="file" class="form-control input-lg" name="file" placeholder="{{__('Ýüz tutma haty')}}" aria-required="true">
-                </label>
-              <p class="help-block help-block-error"></p>
-                    </div>
-                </div>
+                 <div class="offset-md-2 col-md-8 col-xs-12">
+                  <div class="form-group field-cargo_type">
+<label class="control-label" for="cargo_type"></label>
+<input type="text" required="" id="cargo_type" class="form-control input-lg" name="cargo_type" placeholder="{{__('Cargo type')}}" aria-required="true">
 
+<p class="help-block help-block-error"></p>
+</div>                </div>
+                 <div class="offset-md-2 col-md-8 col-xs-12">
+                  <div class="form-group field-cargo_volume">
+<label class="control-label" for="cargo_volume"></label>
+<input type="text" required="" id="cargo_volume" class="form-control input-lg" name="cargo_volume" placeholder="{{__('Cargo volume')}}" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                </div>
                                     <div class="offset-md-2 col-md-8 col-xs-12">
                 <div class="form-group field-message">
 <label class="control-label" for="message"></label>
-<textarea id="message" class="form-control input-lg" name="message" rows="6" placeholder="{{__('Message')}}" style="resize: none;"></textarea>
+<textarea id="message" class="form-control input-lg" name="message" rows="6" placeholder="{{__('Note')}}" style="resize: none;"></textarea>
 
 <p class="help-block help-block-error"></p>
 </div>                </div>

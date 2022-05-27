@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/send-email', [MailController::class, 'sendEmail']);
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 });
@@ -41,6 +43,7 @@ Route::get('/', [HomeController::class, 'index'] );
 Route::get('/contact', [HomeController::class, 'contact'] );
 Route::get('/item', [ItemController::class, 'index'] );
 Route::get('/order', [OrderController::class, 'index'] );
+Route::get('/order/order', [OrderController::class, 'order'] );
 Route::get('/order/{role}', [OrderController::class, 'role'] );
 Route::get('/item/kadalasdyryjy-namalar', [ItemController::class, 'acts'] );
 Route::get('/item/{id}', [ItemController::class, 'show'] )->name('item.show');

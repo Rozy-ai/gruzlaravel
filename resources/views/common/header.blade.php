@@ -16,6 +16,7 @@
                                <a style="color: #fff;text-decoration: none;" href="tel:{{$phone_numbers}}">{{$phone_numbers}}</a>
                                 @endif
                                 </p>
+                              <p class="header_info"> <i class="fa fa-envelope"> </i> <a href="mailto:{{$ownInfo->my_email}}">{{$ownInfo->my_email}}</a></p>
                               </div>
 
 
