@@ -2,19 +2,7 @@
 @section('title') {{ __('Orders') }} @endsection
 @section('content')
 <div class="container">
- 	<div class="row bildiris" id="bildiris">
- 		<div class="col-md-12">
- 			 	<div style="margin: 60px 0">
 
- <br><br>
-{!! $notice->content !!}
- <br><br>
-
-
- 	<button class="btn btn-success" id="ok">{{__('Check out')}}</button>
- 	</div>
- 		</div>
- 	</div>
 
 <style>
 .form_radio_btn {
@@ -44,7 +32,7 @@
 	color: #666;
 }
 </style>
- 	<div class="row" id="form" style="display: none;margin: 60px 0">
+ 	<div class="row" id="form" style="margin: 60px 0">
  		<h2 class="text-uppercase decorated"><span>{{__('Orders')}}</span></h2>
  		<br><br>
  		<form action="{{url('/order/role')}}" class="text-center" method="GET">
@@ -69,20 +57,5 @@
 
 
  </div>
- <script>
 
-
-let bildiris = document.getElementById("bildiris"),
-  bildirisStyle = bildiris.style;
-let form = document.getElementById("form"),
-  formStyle = form.style;
- 
-bildiris.addEventListener("click", bildirisClick);
- 
-function bildirisClick() {
-  bildirisStyle.display = "none";
-  formStyle.display = "block";
-}
- 
- </script>
  @endsection

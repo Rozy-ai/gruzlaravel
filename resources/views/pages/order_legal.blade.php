@@ -65,7 +65,7 @@
 
 <p class="help-block help-block-error"></p>
 </div>                </div>
-                    <div class="col-xs-12">
+                    <div class="offset-md-2 col-md-8 col-xs-12">
                         <div class="form-group field-file">
                             <label class="control-label" for="file">{{__('Ýüz tutma haty')}}
               <input type="file" required="" id="file" class="form-control input-lg" name="file" placeholder="{{__('Ýüz tutma haty')}}" aria-required="true">

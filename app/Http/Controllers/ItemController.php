@@ -37,7 +37,7 @@ class ItemController extends Controller
     ['category_id', '=', $catId],
     ['status', '=', '1'],
     ['is_main', '=', 0],
-])->orderBy('date_created', 'desc')->paginate(10);
+    ])->orderBy('date_created', 'desc')->paginate(10);
         return view('pages.acts_list', ['items' => $items]);
     }
 }
