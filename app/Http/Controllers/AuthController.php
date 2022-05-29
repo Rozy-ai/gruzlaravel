@@ -16,12 +16,13 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'password' => 'required',
+            'password' =>
+             'required',
         ]);
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/')
+            return redirect()->intended('admin/dashboard')
                         ->withSuccess('Signed in');
         }
   
@@ -44,7 +45,7 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
          
-        return redirect("login")->withSuccess('Success');
+        return redirect("admin")->withSuccess('Signed in');
     }
 
     public function create(array $data)
@@ -69,6 +70,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect('login');
+        return Redirect('admin')->withSuccess('Signed in');
     }
 }

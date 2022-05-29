@@ -26,12 +26,15 @@ use App\Http\Controllers\MailController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/send-email', [MailController::class, 'sendEmail']);
+// Test email
+// Route::get('/send-email', [MailController::class, 'sendEmail']);
+
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 });
 Route::group(['middleware' => 'guest'], function(){
-	Route::get('login', [AuthController::class, 'index'])->name('login');
+	Route::get('/admin', [DashboardController::class, 'index'] );
+	// Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
@@ -41,6 +44,7 @@ Route::post('custom-registration', [AuthController::class, 'customRegistration']
 
 Route::get('/', [HomeController::class, 'index'] );
 Route::get('/contact', [HomeController::class, 'contact'] );
+Route::post('/custom-contact', [HomeController::class, 'customContact'])->name('contact.custom'); 
 Route::get('/item', [ItemController::class, 'index'] );
 Route::get('/order', [OrderController::class, 'index'] );
 Route::get('/order/order', [OrderController::class, 'order'] );
@@ -55,7 +59,7 @@ Route::get('language/{locale}', function ($locale) {
 });
 
 Route::group(['prefix' => 'admin', 'namescape' => 'Admin', 'middleware' => 'admin'], function (){
-Route::get('/', [DashboardController::class, 'index'] );
+Route::get('/dashboard', [DashboardController::class, 'dashboard'] );
 Route::resource('categories', CategoriesController::class );
 Route::resource('items', ItemsController::class );
 Route::resource('users', UsersController::class );

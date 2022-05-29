@@ -33,8 +33,8 @@
             @endif
          
         </div>
-        <form id="contact-form" class="contact1-form validate-form" action="{{ url('home/contact') }}" method="post">
-        	{!! csrf_field() !!}
+            <form id="contact-form" class="contact1-form validate-form" method="POST" action="{{ route('contact.custom') }}">
+                            @csrf
        <span class="contact1-form-title">
 <h2>{{__('Send us a message')}}</h2>
 </span>

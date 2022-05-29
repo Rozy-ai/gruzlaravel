@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Item;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailDemo;
 
 class OrderController extends Controller
 {
@@ -44,7 +46,20 @@ $notice = Item::where([
         // 'cargo_volume' => 'required',
         // ]);
         $order = new Order;
+        $mailData = $request->all();
+        $email = 'ashauk@awtoulag.gov.tm';
+        Mail::to($email)->send(new EmailDemo($mailData));
         Order::create($request->all());
+        // return response()->json([
+        //     'message' => 'Email has been sent.'
+        // ], Response::HTTP_OK);
         return redirect('/order')->with('success', __('Order Addedd!'));
+
+
+   
+
+  
+   
+
     }
 }

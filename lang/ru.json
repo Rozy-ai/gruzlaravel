@@ -290,5 +290,7 @@
     "Cargo volume" : "Объем груза",
     "Enterprise" : "Предприятие",
     "Responsible person" : "Ф.И.О. ответственного",
-    "Order Addedd!" : "Заказ добавлен!"
+    "Order Addedd!" : "Заказ добавлен!",
+    "Role" : "Роль",
+    "New Order" : "Новый Заказ"
 }

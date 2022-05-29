@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Models\Info;
+use App\Models\Contact;
 use App\Models\Image;
 use App\DTO\GetItemByCat;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailDemo;
 
 class HomeController extends Controller
 {
@@ -25,5 +28,15 @@ class HomeController extends Controller
     {
     	$ownInfo = Info::first();
     	return view('pages.contact',['ownInfo' => $ownInfo]);
+    }
+
+    public function customContact(Request $request)
+    {
+        $mailData = $request->all();
+        $mailData['role'] = 'contact';
+        $email = 'ashauk@awtoulag.gov.tm';
+        Mail::to($email)->send(new EmailDemo($mailData));
+        Contact::create($request->all());
+        return redirect('/contact')->with('success', __('send succss'));
     }
 }
