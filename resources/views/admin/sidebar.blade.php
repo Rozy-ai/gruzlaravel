@@ -30,9 +30,21 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url('/admin/orders') }}">
+              <i class="fa fa-book"></i>
+              {{__('Orders')}}
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url('/admin/dropzone') }}">
               <i class="fa fa-image"></i>
               Media
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/admin/contacts') }}">
+              <i class="fa fa-phone"></i>
+              {{__('Contact Us')}}
             </a>
           </li>
           <li class="nav-item">

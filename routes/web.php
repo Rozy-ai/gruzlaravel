@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ItemsController;
 use App\Http\Controllers\Admin\TrucksController;
+use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\ImageUploadController;
 use App\Http\Controllers\Admin\DropzoneController;
@@ -64,6 +66,8 @@ Route::resource('categories', CategoriesController::class );
 Route::resource('items', ItemsController::class );
 Route::resource('users', UsersController::class );
 Route::resource('trucks', TrucksController::class );
+Route::resource('orders', OrdersController::class );
+Route::resource('contacts', ContactsController::class );
 Route::resource('info', InfoController::class );
 
 Route::get('dropzone', [DropzoneController::class, 'index']);

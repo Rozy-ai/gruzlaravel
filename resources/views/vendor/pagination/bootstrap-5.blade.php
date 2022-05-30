@@ -51,12 +51,4 @@
         </div>
     </nav>
 @endif
-<style>
-    .page-item.active .page-link {
-    background-color: #038129;
-    border-color: #038129;
-}
-.page-link{
-    color: #038129;
-}
 </style>

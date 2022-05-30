@@ -70,6 +70,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect('admin')->withSuccess('Signed in');
+        return Redirect('/')->withSuccess('Signed out');
     }
 }

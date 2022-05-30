@@ -23,7 +23,7 @@
 	  	  <p>Use the sidebar to the left to create, edit or delete content.</p>
 	  
 	  	  <p class="lead">
-	    <a class="btn btn-primary" href="{{url('/admin/logout')}}" role="button">Logout</a>
+	    <a class="btn btn-primary" href="{{url('/signout')}}" role="button">Logout</a>
 	  </p>
 	  	</div>
 
