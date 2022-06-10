@@ -18,4 +18,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    RewriteCond %{HTTP_HOST} ^95.85.120.140 
+    RewriteRule (.*) https://ashauk.gov.tm/$1 [R=301,L]
 </IfModule>

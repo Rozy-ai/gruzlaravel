@@ -36,15 +36,6 @@ $notice = Item::where([
 
     public function order(Request $request)
     {
-        // $this->validate($request, [
-        // 'phone' => 'required',
-        // 'email' => 'email',
-        // 'date' => 'required',
-        // 'where' => 'required',
-        // 'to' => 'required',
-        // 'cargo_type' => 'required',
-        // 'cargo_volume' => 'required',
-        // ]);
         $order = new Order;
         $mailData = $request->all();
         $email = 'ashauk@awtoulag.gov.tm';
@@ -55,10 +46,6 @@ $notice = Item::where([
         // ], Response::HTTP_OK);
         return redirect('/order')->with('success', __('Order Addedd!'));
 
-
-   
-
-  
    
 
     }

@@ -17,11 +17,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->is_admin) {
-        return $next($request);
-        } else if (Auth::check()) {
-            return Redirect('/');
-        }
+        // if (Auth::check() && Auth::user()->is_admin) {
+        // return $next($request);
+        // } else if (Auth::check()) {
+        //     return Redirect('/');
+        // }
         abort(404);
     }
 }

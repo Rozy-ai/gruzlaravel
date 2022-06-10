@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
     	$about = GetItemByCat::getData('about');
     	$news = GetItemByCat::getData('news',['desc' => 'date_created','limit' => 8]);
-        $galleries = \File::allFiles(public_path('images'));
+        // $galleries = \File::allFiles(public_path('images'));
         $sliders = Image::where('type', '=', 1)->get();
         $galleries = Image::where('type', '=', 2)->get();
     

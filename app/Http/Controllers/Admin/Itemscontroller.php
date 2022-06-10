@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\DTO\GetItem;
 use Illuminate\Support\Arr;
 use App\Http\Requests\ImageUploadRequest;
+use App\Models\ImageUpload;
 use Illuminate\Support\Facades\Storage;
 
 class Itemscontroller extends Controller
@@ -20,7 +21,7 @@ class Itemscontroller extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::orderBy('date_created', 'desc')->paginate(10);
         return view ('admin.items.index')->with('items', $items);
     }
 
@@ -41,19 +42,38 @@ class Itemscontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ImageUploadRequest $request)
+    public function store(Request $request)
     {
+        $file = base64_decode(request('file'));
+        // $file = $request->file('file');
+        dd($file);
         $item = new Item;
         $item->setCategory($request['category_id']);
         $item->setDate($request['date_created']);
         $item->toggleStatus($request['status']);
         $item->toggleMenu($request['is_menu']);
         $item->toggleMain($request['is_main']);
-        $item->storeMedia($request);
+        // $item->storeMedia($request);
         $data = GetItem::getData($request->all(), $item);
         Item::create($data);
         return redirect('admin/items')->with('success', 'Item Addedd!');  
     }
+
+    public function upload(Request $request)
+    {
+        $image = $request->file('file');
+
+        $imageName = time() . '.' . $image->extension();
+
+        $image->move(public_path('uploads/item'), $imageName);
+
+        // $imageUpload = new ImageUpload;
+        // $imageUpload->filename =  $imageName;
+        // $imageUpload->save();
+        return response()->json(['success' => $imageName]);
+        
+    }
+    
 
     /**
      * Display the specified resource.

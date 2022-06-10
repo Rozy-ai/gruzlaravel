@@ -62,8 +62,10 @@ Route::get('language/{locale}', function ($locale) {
 
 Route::group(['prefix' => 'admin', 'namescape' => 'Admin', 'middleware' => 'admin'], function (){
 Route::get('/dashboard', [DashboardController::class, 'dashboard'] );
+Route::get('/statistics', [DashboardController::class, 'statistics'] );
 Route::resource('categories', CategoriesController::class );
 Route::resource('items', ItemsController::class );
+Route::post('/upload', [ItemsController::class, 'upload'] )->name('upload');
 Route::resource('users', UsersController::class );
 Route::resource('trucks', TrucksController::class );
 Route::resource('orders', OrdersController::class );

@@ -62,8 +62,8 @@
 {{ 'selected="selected"'}}
  @endif
     >{{ $value }}</option>
-}
-}
+
+
 @endforeach
 </select>
 

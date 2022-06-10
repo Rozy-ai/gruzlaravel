@@ -1,7 +1,7 @@
  @extends('admin.layout')
 @section('content')
     <h3 class="jumbotron">Laravel Multiple Images Upload Using Dropzone</h3>
-    <form method="post" action="{{route('dropzone.store')}}" enctype="multipart/form-data" 
+    <form method="post" id="dropzoneForm" action="{{route('dropzone.store')}}" enctype="multipart/form-data" 
                   class="dropzone dz-clickable" id="dropzone">
     @csrf
     <div>

@@ -2,7 +2,7 @@
 @section('content')
  
 <div class="card">
-  <div class="card-header">Contactus Page</div>
+  <div class="card-header">Items Page</div>
   <div class="card-body">
       
       <form action="{{ url('/admin/items/' .$item->id) }}" method="post" enctype="multipart/form-data">
@@ -23,14 +23,14 @@
   <div class="tab-pane fade show active" id="common" role="tabpanel" aria-labelledby="common-tab">
      @include('admin.items.form_edit')
     </div>
-      <div class="tab-pane fade show active" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+      <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
      @include('admin.items.gallery')
     </div>
   </div>
            <input type="submit" value="Update" class="btn btn-success"></br>
     </form>
-   
   </div>
 </div>
- 
 @stop
+
+

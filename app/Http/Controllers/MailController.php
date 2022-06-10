@@ -11,7 +11,7 @@ class MailController extends Controller {
         $email = 'ashauk@awtoulag.gov.tm';
    
         $mailData = [
-            'title' => 'Demo Email',
+            'title' => 'Ashauk',
             'url' => 'https://google.com'
         ];
   

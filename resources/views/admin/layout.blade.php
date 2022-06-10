@@ -352,57 +352,72 @@ const hideErrorFrame = modal => {
  </script>
 
 <script type="text/javascript">
+Dropzone.options.fileUpload = {
+url: 'blackHole.php',
+addRemoveLinks: true,
+accept: function(file) {
+let fileReader = new FileReader();
 
-  Dropzone.options.dropzoneForm = {
-    maxFilesize: 2,
-    parallelUploads: 3,
-    autoProcessQueue : false,
-    acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+fileReader.readAsDataURL(file);
+fileReader.onloadend = function() {
 
-    init:function(){
-      var submitButton = document.querySelector("#submit-all");
-      myDropzone = this;
+let content = fileReader.result;
+$('#file').val(content);
+file.previewElement.classList.add("dz-success");
+}
+file.previewElement.classList.add("dz-complete");
+}
+}
+  // Dropzone.options.dropzoneForm = {
+  //   maxFilesize: 2,
+  //   parallelUploads: 3,
+  //   autoProcessQueue : false,
+  //   acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
 
-      submitButton.addEventListener('click', function(){
-        myDropzone.processQueue();
-      });
+  //   init:function(){
+  //     var submitButton = document.querySelector("#submit-all");
+  //     myDropzone = this;
 
-      this.on("complete", function(){
-        if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
-        {
-          var _this = this;
-          _this.removeAllFiles();
-        }
-        load_images();
-      });
+  //     submitButton.addEventListener('click', function(){
+  //       myDropzone.processQueue();
+  //     });
 
-    }
+  //     this.on("complete", function(){
+  //       if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+  //       {
+  //         var _this = this;
+  //         _this.removeAllFiles();
+  //       }
+  //       load_images();
+  //     });
 
-  };
+  //   }
 
-  load_images();
+  // };
 
-  function load_images()
-  {
-    $.ajax({
-      url:"{{ route('dropzone.fetch') }}",
-      success:function(data)
-      {
-        $('#uploaded_image').html(data);
-      }
-    })
-  }
+  // load_images();
 
-  $(document).on('click', '.remove_image', function(){
-    var name = $(this).attr('id');
-    $.ajax({
-      url:"{{ route('dropzone.delete') }}",
-      data:{name : name},
-      success:function(data){
-        load_images();
-      }
-    })
-  });
+  // function load_images()
+  // {
+  //   $.ajax({
+  //     url:"{{ route('dropzone.fetch') }}",
+  //     success:function(data)
+  //     {
+  //       $('#uploaded_image').html(data);
+  //     }
+  //   })
+  // }
+
+  // $(document).on('click', '.remove_image', function(){
+  //   var name = $(this).attr('id');
+  //   $.ajax({
+  //     url:"{{ route('dropzone.delete') }}",
+  //     data:{name : name},
+  //     success:function(data){
+  //       load_images();
+  //     }
+  //   })
+  // });
 
 </script>
 
